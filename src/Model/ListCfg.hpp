@@ -37,6 +37,7 @@
 #include <libintl.h>
 #include <unistd.h>
 #include <fstream>
+#include <array>
 
 #include "../config.hpp"
 
