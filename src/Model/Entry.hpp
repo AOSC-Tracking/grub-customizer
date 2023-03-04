@@ -107,7 +107,7 @@ class Model_Entry : public Trait_LoggerAware, public Entry
 				break;
 			} else {
 				if (plaintextBuffer) {
-					*plaintextBuffer += row.text + "\r\n";
+					*plaintextBuffer += row.text + "\n";
 				}
 			}
 			firstRow.eof = true; //disable firstRow to read the following config from file

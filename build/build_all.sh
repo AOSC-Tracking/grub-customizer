@@ -100,6 +100,7 @@ build a artful
 build b bionic
 build c cosmic
 build j jammy
+build k kinetic
 
 
 echo '#!/bin/sh
