@@ -90,29 +90,17 @@ function build() {
 	chmod +x "$releasedir/$subdir/$distribution"/*.sh
 }
 
-build t trusty
-build v vivid
-build w wily
-build x xenial
-build y yakkety
-build z zesty
-build a artful
 build b bionic
-build c cosmic
+build f focal
 build j jammy
 build k kinetic
 
 
 echo '#!/bin/sh
-'$releasedir'/'$subdir'/trusty/upload.sh
-'$releasedir'/'$subdir'/vivid/upload.sh
-'$releasedir'/'$subdir'/wily/upload.sh
-'$releasedir'/'$subdir'/xenial/upload.sh
-'$releasedir'/'$subdir'/yakkety/upload.sh
-'$releasedir'/'$subdir'/zesty/upload.sh
-'$releasedir'/'$subdir'/artful/upload.sh
 '$releasedir'/'$subdir'/bionic/upload.sh
-'$releasedir'/'$subdir'/cosmic/upload.sh
+'$releasedir'/'$subdir'/focal/upload.sh
+'$releasedir'/'$subdir'/jammy/upload.sh
+'$releasedir'/'$subdir'/kinetic/upload.sh
 ' > $releasedir/$subdir/upload_ppas.sh
 
 chmod +x "$releasedir/$subdir/upload_ppas.sh"
