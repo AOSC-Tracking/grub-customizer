@@ -118,20 +118,6 @@ dput revu '$releasedir'/'$subdir'/revu/grub-customizer_'$version'-0ubuntu1_sourc
 chmod +x "$releasedir/$subdir/revu/upload.sh"
 # </revu>
 
-# <mentors>
-cp "$releasedir/$subdir/grub-customizer_$version.orig.tar.gz" "$builddir/grub-customizer_$version.orig.tar.gz"
-"$projectRoot/debian/changelog.mentors.d" $version unstable > debian/changelog
-cat "$projectRoot/debian/control" | grep -v '^Maintainer' | sed 's/XSBC-Original-Maintainer/Maintainer/' | sed 's/, *dpatch//' | sed 's/debhelper (>= 7.3)/debhelper (>= 8)/' > debian/control
-rm -r "debian/patches"
-cat "$projectRoot/debian/rules" | grep -v 'dpatch' > debian/rules
-debuild -S;
-mkdir "$releasedir/$subdir/mentors"
-mv "$builddir"/grub-customizer_* "$releasedir/$subdir/mentors"
-echo '#!/bin/sh
-dput mentors '$releasedir'/'$subdir'/mentors/grub-customizer_'$version'-1_source.changes' > $releasedir/$subdir/mentors/upload.sh
-chmod +x "$releasedir/$subdir/mentors/upload.sh"
-# </mentors>
-
 cd "$basedir"
 sudo umount "$builddir"
 rmdir "$builddir"
