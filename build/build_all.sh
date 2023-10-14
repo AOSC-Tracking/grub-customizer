@@ -95,6 +95,7 @@ build f focal
 build j jammy
 build k kinetic
 build l lunar
+build m mantic
 
 
 echo '#!/bin/sh
@@ -103,6 +104,7 @@ echo '#!/bin/sh
 '$releasedir'/'$subdir'/jammy/upload.sh
 '$releasedir'/'$subdir'/kinetic/upload.sh
 '$releasedir'/'$subdir'/lunar/upload.sh
+'$releasedir'/'$subdir'/mantic/upload.sh
 ' > $releasedir/$subdir/upload_ppas.sh
 
 chmod +x "$releasedir/$subdir/upload_ppas.sh"
