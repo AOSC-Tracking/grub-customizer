@@ -29,6 +29,7 @@
 #include <string>
 #include <ostream>
 #include <memory>
+#include <regex>
 #include "../lib/Helper.hpp"
 #include "../lib/ArrayStructure.hpp"
 #include "../lib/Type.hpp"
@@ -163,7 +164,7 @@ class Model_Rule : public Rule {
 	public: void print(std::ostream& out) const {
 		if (this->isVisible) {
 			if (this->type == Model_Rule::PLAINTEXT && this->dataSource) {
-				out << this->dataSource->content;
+				out << this->cleanupScriptCode(this->dataSource->content);
 			} else if (this->type == Model_Rule::NORMAL && this->dataSource) {
 				out << "menuentry";
 				out << " \"" << this->outputName << "\"" << this->dataSource->extension << "{\n";
@@ -224,6 +225,13 @@ class Model_Rule : public Rule {
 		result["type"] = this->type;
 
 		return result;
+	}
+
+	private: std::string cleanupScriptCode(std::string const& scriptCode) const
+	{
+		// parse out empty if statements: if [ COND ]; then WHITESPACE fi
+		std::regex regex("\n[ \t]*if +\\[[^\\]]+\\] *; +then[\n \t]+fi\n");
+		return std::regex_replace(scriptCode, regex, "\n");
 	}
 };
 
