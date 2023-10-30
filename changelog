@@ -1,3 +1,6 @@
+v 5.2.4
+	* fixed empty if statement problem of generated code
+
 v 5.2.3
 	* fixed CRLF problem
 
