@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Grub Customizer
 Comment=Customize the bootloader (GRUB2 or BURG)
-Exec=grub-customizer
+Exec=pkexec grub-customizer
 Terminal=false
 X-MultipleArgs=false
 Type=Application
@@ -9,5 +9,4 @@ StartupNotify=false
 Categories=System;Settings;
 Icon=grub-customizer
 X-Ubuntu-Gettext-Domain=grub-customizer
-X-KDE-SubstituteUID=true
 Keywords=GRUB;GRUB2;BURG;configuration;settings;menu;
